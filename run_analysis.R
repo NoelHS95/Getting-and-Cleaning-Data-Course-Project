@@ -1,12 +1,25 @@
 #run_analysis.R
-#Noel Hern·ndez Sandoval
+#Noel Hern√°ndez Sandoval
 #Getting and Cleaning Data
 
 library(data.table)
 library(dplyr)
 
 #Set your working directory
-setwd("N:/Documentos/Cursos/Coursera/Getting and cleaning data/week 4/Data/UCI HAR Dataset/")
+setwd("N:/Documentos/Cursos/Coursera/Getting and cleaning data/week 4/Data/")
+
+#Download UCI data files from the web and unzip them.
+url<- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+name<- "CourseDataset.zip"
+
+if (!file.exists(name)){
+  download.file(url, destfile = name, mode='wb')
+}
+if (!file.exists("./UCI_HAR_Dataset")){
+  unzip(name)
+}
+
+setwd("./UCI HAR Dataset")
 
 #Labels for activity
 
